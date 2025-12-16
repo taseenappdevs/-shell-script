@@ -106,7 +106,7 @@ flutter build apk --target-platform android-arm,android-arm64,android-x64 --spli
 # 5. Prepare Release Folder
 # ========================
 cd ..
-RELEASE_ROOT="${APK_NAME}-release-bundle-${NEW_VERSION}"
+RELEASE_ROOT="${APK_NAME}-app-${NEW_VERSION}"
 
 # Clean up previous release dir
 rm -rf "$RELEASE_ROOT"
