@@ -191,6 +191,22 @@ else
 fi
 
 # ========================
+# 7.5. Anonymize Domain in api_endpoint.dart
+# ========================
+echo "🔒 Anonymizing domain in api_endpoint.dart..."
+
+# Define directories to search
+TARGET_DIRS=("$FULL_CODE_DIR" "$UPDATED_FILES_DIR")
+
+for DIR in "${TARGET_DIRS[@]}"; do
+    if [ -d "$DIR" ]; then
+        # Find api_endpoint.dart and replace the domain string
+        # Using sed -i '' for macOS compatibility. Matches any mainDomain variable assignment.
+        find "$DIR" -name "api_endpoint.dart" -type f -exec sed -i '' 's/mainDomain *= *".*";/mainDomain = "PUT_YOUR_OWN_DOMAIN_HERE";/g' {} +
+    fi
+done
+
+# ========================
 # 8. Create Final Zip Archive
 # ========================
 echo "📦 Creating final zip archive..."
